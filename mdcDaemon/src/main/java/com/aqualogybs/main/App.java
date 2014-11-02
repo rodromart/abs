@@ -1,4 +1,4 @@
-package com.aqualogybs;
+package com.aqualogybs.main;
 
 /**
  * Hello world!
