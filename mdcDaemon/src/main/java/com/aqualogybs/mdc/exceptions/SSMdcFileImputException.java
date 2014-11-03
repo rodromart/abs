@@ -2,7 +2,6 @@ package com.aqualogybs.mdc.exceptions;
 
 import java.io.IOException;
 
-@SuppressWarnings("serial")
 public class SSMdcFileImputException extends IOException {
 	
 	

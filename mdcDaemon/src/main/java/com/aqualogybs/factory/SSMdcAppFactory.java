@@ -1,7 +1,10 @@
 package com.aqualogybs.factory;
 
-import com.aqualogybs.main.SSMdcAppInitializationInterface;
-import com.aqualogybs.main.SSMdcAppInitializeAclara;
+import com.aqualogybs.mdc.config.SSMdcAppConfigParameters;
+import com.aqualogybs.mdc.main.SSMdcAppInitializationInterface;
+import com.aqualogybs.mdc.main.SSMdcAppInitializeAclara;
+import com.aqualogybs.mdc.main.SSMdcRunProcessAclara;
+import com.aqualogybs.mdc.main.SSMdcRunProcessInterface;
 
 public class SSMdcAppFactory {
 
@@ -23,13 +26,21 @@ public class SSMdcAppFactory {
 	
 	
 	
-	public SSMdcAppInitializationInterface getMakerInitializer(String maker){
+	public SSMdcAppInitializationInterface getMakerInitializer(SSMdcAppConfigParameters appConfigParameters){
 		
-		if(ACLARA.equals(maker)){
-			return new SSMdcAppInitializeAclara();
+		if(ACLARA.equals(appConfigParameters.getMaker())){
+			return new SSMdcAppInitializeAclara(appConfigParameters);
 		}
 		
 		return null;
 		
+	}
+	
+	public SSMdcRunProcessInterface getMakerRunProcess(SSMdcAppConfigParameters appConfigParameters){
+		if(ACLARA.equals(appConfigParameters.getMaker())){
+			return new SSMdcRunProcessAclara(appConfigParameters);
+		}
+		
+		return null;
 	}
 }
